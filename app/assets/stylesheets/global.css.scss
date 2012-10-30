@@ -1,0 +1,72 @@
+// Place all the styles related to global styles and utility classes here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clear {
+  clear: both;
+}
+
+body {
+  font-family: "lemonde-courrier", serif;
+  background: #f3ecec url('bg-body.png') repeat;
+}
+
+h1 { 
+  @include border-radius(5px);
+  background:#fff;
+  text-align:center;
+  line-height:80px;
+  font-size:48px;
+  margin-bottom:30px;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+h1,h2,h3,h4,h5 {
+  color:#002f57;
+  text-transform:capitalize;
+}
+
+.navbar {
+  a.brand {
+    width:240px;
+    height:40px;
+    padding:0;
+    margin:0;
+    display:block;
+    text-indent:-9999px;
+    background:url('logo1.png') 0 -25px no-repeat;
+  }
+}
+
+.box {
+  @include border-radius(5px);
+  background-color: #fff;
+  padding: 20px;  
+}
+
+div.row {
+  form {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+    }
+  }
+}
+
+#main-content { padding-top: 60px; }
+
+#nav-divider {
+  padding:10px 0;
+}
+
+footer { 
+  height:300px;
+  padding:40px 0;
+  margin-top:40px;
+  background: #eee;
+  border-top:1px solid #fff;
+}

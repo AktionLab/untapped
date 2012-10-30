@@ -1,14 +1,90 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 <head>
-  <title>Untapped</title>
+  <title>ElixirFund</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "/js/jquery-1.7.2.min.js" %>
+  <script type="text/javascript" src="//use.typekit.net/odq1cgl.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">Elixir Fund</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><%= link_to t('label.home'), root_path %></li>
+          <li><%= link_to t('label.patients'), patients_path %></li>
+          <li><%= link_to t('label.products'), products_path %></li>
+          <li><a href="">About</a></li>
+        </ul>
+        <ul class="nav pull-right">  
+          <li><%= link_to t('label.cart'), cart_path %></li> 
+          <% if user_signed_in? %>
+            <li><%= link_to t('user.my_account'), account_path %></li>
+            <li><%= link_to t('button.user.sign_out'), destroy_user_session_path, :method => :delete %></li>
+          <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
+            <li><%= link_to t('button.user.sign_in'), new_user_session_path %></li>
+            <li id="nav-divider">|</li>
+            <li><%= link_to t('button.user.sign_up'), new_user_registration_path %></li>
+          <% end %>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--container-->
+  </div><!--navbar-inner-->
+</div><!--navbar-fixed-top-->
+
+<div id="main-content" class="container" role="main">
+  <p class="notice" style="display:none;"><%= notice %></p>
+  <p class="alert" style="display:none;"><%= alert %></p>
+    <%= yield %>
+  </div><!--main-->
+</div><!--container-->
+
+<footer>
+  <div class="container">
+    <h3>About Us</h3>
+    <p>About us teaser text</p>
+    <%= link_to t('read_more'), pages_path('about') %>
+
+    <h3>Success Stories</h3>
+    <p>Case study picture grid</p>
+    <%= link_to t('view_more'), pages_path('success') %>
+
+    <nav>
+      <ul>
+        <li><%= link_to t('contact_us'), pages_path('contact') %></li>
+        <li><%= link_to t('terms'), pages_path('terms') %></li>
+        <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
+      </ul>
+    </nav>
+  </div><!--container-->
+</footer>
+
+<script>
+  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
 </body>
 </html>
