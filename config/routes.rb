@@ -1,6 +1,4 @@
 Untapped::Application.routes.draw do
-  root :to => "pages#show", :id => 'home'
-  get '/:id', :to => 'pages#show', :as => :pages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

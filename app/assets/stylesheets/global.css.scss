@@ -8,7 +8,7 @@
 
 body {
   font-family: "lemonde-courrier", serif;
-  background: #f3ecec url('bg-body.png') repeat;
+  background: #e6e59c url('noise.png') repeat;
 }
 
 h1 { 
@@ -32,13 +32,13 @@ h1,h2,h3,h4,h5 {
 
 .navbar {
   a.brand {
-    width:240px;
+    width:300px;
     height:40px;
     padding:0;
     margin:0;
     display:block;
     text-indent:-9999px;
-    background:url('logo1.png') 0 -25px no-repeat;
+    background:url('bg-logo.png') 0 0 no-repeat;
   }
 }
 
