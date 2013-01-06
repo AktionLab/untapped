@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@mixin box-style {
+  @include border-radius(2px);
+  background-color: #fff;
+  -moz-box-shadow: 0 1px 3px #bbb;
+  -webkit-box-shadow: 0 1px 3px #bbb;
+  box-shadow: 0 1px 3px #bbb;
+}
+
 .clear {
   clear: both;
 }
@@ -52,10 +67,24 @@ div.row {
   form {
     input[type="text"],
     input[type="email"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="submit"], 
+    input[type="number"],
+    input[type="tel"],
+    textarea {
+      @include box-sizing;
+      height: 30px;
+    }
+    textarea { height: 120px; }
+    input[type="submit"] {
+      margin-top: 20px;
+    }
+    label {
+      display: inline;
     }
   }
 }
+.input-append { width: 100%; }
 
 #main-content { padding-top: 60px; }
 

@@ -33,6 +33,12 @@
           <li><a href="">Discover</a></li>
           <li><a href="">Share</a></li>
           <li><a href="">About</a></li>
+          <% if user_signed_in? %> 
+            <li><%= link_to t('sign_out'), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to t('sign_in'), new_user_session_path %></li>
+            <li><%= link_to t('sign_up'), new_user_registration_path %></li>
+          <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div><!--container-->
@@ -41,15 +47,15 @@
 
 <div id="main-content" class="container" role="main">
   <% if notice %>
-    <div class="alert fade in">
+    <div class="alert alert-success fade in">
       <button type="button" class="close" data-dismiss="alert">×</button>
-      <strong>Notice:</strong> <%= notice %>
+      <strong>Success:</strong> <%= notice %>
     </div>
   <% end %>
   <% if alert %>
-    <div class="alert fade in">
+    <div class="alert alert-error fade in">
       <button type="button" class="close" data-dismiss="alert">×</button>
-      <strong>Alert:</strong> <%= alert %>
+      <strong>Error:</strong> <%= alert %>
     </div>
   <% end %>
   
@@ -61,7 +67,7 @@
     <h3>About Us</h3>
     <p>About us teaser text</p>
     <%= link_to t('read_more'), pages_path('about'), :class => "btn btn-primary" %>
-    <%= link_to t('frequently_asked_questions'), pages_path('faq'), :class => "btn btn-info" %>
+    <%= link_to t('FAQ'), pages_path('faq'), :class => "btn btn-info" %>
 
     <h3>Success Stories</h3>
     <p>Case study picture grid</p>
