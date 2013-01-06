@@ -40,10 +40,20 @@
 </div><!--navbar-fixed-top-->
 
 <div id="main-content" class="container" role="main">
-  <p class="notice" style="display:none;"><%= notice %></p>
-  <p class="alert" style="display:none;"><%= alert %></p>
-    <%= yield %>
-  </div><!--main-->
+  <% if notice %>
+    <div class="alert fade in">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Notice:</strong> <%= notice %>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="alert fade in">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Alert:</strong> <%= alert %>
+    </div>
+  <% end %>
+  
+  <%= yield %>
 </div><!--container-->
 
 <footer>
