@@ -123,18 +123,6 @@ end %>
       <%= f.password_field :password, :placeholder => "Password" %>
       <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
       <%= f.text_field :username, :placeholder => "Username" %>
-      <h3>About You</h3>
-      <p>Let's add some quick info</p>
-      <%= f.text_field :city, :placeholder => "City" %>
-      <%= select_tag :state, options_for_select(us_states), :class => "state" %>
-      <%= f.text_field :zip_code, :placeholder => "Zip Code"%>        
-      <%= f.text_area :slug, :placeholder => "Slug; Tell us about yourself." %>
-      <%= f.text_area :skills, :placeholder => "Skills" %>
-      <h3>Upload Your Work</h3>
-      <p>Add content to your portfolio:</p>
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar, :type => "file" %>
-
       <%= f.submit "Sign up", :class => "btn btn-primary" %>
     <% end %>
 

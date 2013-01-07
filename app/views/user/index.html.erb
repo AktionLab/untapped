@@ -1,8 +1,0 @@
-<h1>Artistic Community</h1>
-
-<%= render 'search' %>
-<% @users.in_groups_of(6, false).each do |users| %>
-  <div class="row">
-    <%= render :partial => 'users/user', :collection => users %>
-  </div>
-<% end %>

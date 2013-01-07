@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'activeadmin'
 gem 'carrierwave'
+gem 'wicked'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

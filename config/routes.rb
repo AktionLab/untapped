@@ -8,4 +8,5 @@ Untapped::Application.routes.draw do
   get '/:id', :to => 'pages#show', :as => :pages
 
   resources :users
+  resources :user_steps
 end
